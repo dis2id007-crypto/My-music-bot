@@ -15,7 +15,6 @@ async function volume(client, interaction, lang) {
                     iconURL: musicIcons.alertIcon,
                     url: config.SupportServer
                 })
-                .setFooter({ text: lang.footer, iconURL: musicIcons.heartIcon })
                 .setDescription(lang.volume.embed.noActivePlayerDescription);
 
             await interaction.reply({ embeds: [errorEmbed], ephemeral: true });
@@ -35,7 +34,6 @@ async function volume(client, interaction, lang) {
                 iconURL: musicIcons.volumeIcon,
                 url: config.SupportServer
             })
-            .setFooter({ text: lang.footer, iconURL: musicIcons.heartIcon })
             .setDescription(lang.volume.embed.volumeUpdatedDescription.replace("{volume}", volume));
 
         return interaction.reply({ embeds: [embed] });
@@ -48,7 +46,6 @@ async function volume(client, interaction, lang) {
                 iconURL: musicIcons.alertIcon,
                 url: config.SupportServer
             })
-            .setFooter({ text: lang.footer, iconURL: musicIcons.heartIcon })
             .setDescription(lang.volume.embed.errorDescription);
 
         await interaction.reply({ embeds: [errorEmbed], ephemeral: true });
@@ -66,4 +63,5 @@ module.exports = {
         required: true
     }],
     run: volume
+
 };
